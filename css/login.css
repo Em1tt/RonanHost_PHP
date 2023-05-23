@@ -1,0 +1,87 @@
+body {
+    overflow-x: hidden;
+}
+
+.overlayStatic{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("/static/oilrig.png");
+    background-size:cover;
+    overflow-x: hidden;
+    background-repeat: no-repeat;
+}
+
+body > div{
+    position: fixed;
+    background-color: var(--main);
+    width: 280px;
+    height: calc( 100vh - 81px );
+    right: 0;
+    top: 0;
+    border-left: 1px solid var(--mainLighter);
+    padding-top: 81px;
+    padding-inline: 20px;
+}
+
+body > div > h2{
+    color: var(--highlight);
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    align-items: center;
+}
+
+input[type="text"], input[type="password"], input[type="email"]{
+    background-color: var(--mainLighter);
+    border-radius: var(--borderRadius);
+    margin-bottom: 5px;
+    width: calc( 100% - 20px );
+    border: none;
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+    font-size: 1.05rem;
+    color: white;
+}
+input[type="text"]::placeholder, input[type="password"]::placeholder, input[type="email"]::placeholder{
+    color: gray;
+}
+
+form button{
+    width: 100%;
+    justify-content: center;
+    padding: 10px !important;
+}
+form p{
+    color: red;
+    margin-bottom: 5px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+form + p{
+    color: gray;
+    margin-top: 10px;
+}
+form + p a{
+    color: var(--highlight);
+}
+form + p > a{
+    text-decoration: none;
+    color: var(--highlight) !important;
+}
+form + p > a:hover{
+    text-decoration: none;
+    color: var(--highlightBlue) !important;
+}
+
+form .highlightInput{
+    border: 1px solid red;
+    color: red;
+}
+form .highlightInput:focus{
+    border: transparent;
+    color: white;
+}

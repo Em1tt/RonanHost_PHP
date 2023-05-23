@@ -1,0 +1,101 @@
+body{
+    background: var(--mainLighter);
+    width: 100%;
+}
+
+body > section{
+    width: calc(100% - 20px);
+    padding-inline: 10px;
+    margin-bottom: 10px;
+}
+
+
+section > div{
+    max-width: 800px;
+    width: var(100% - 20px);
+    border-radius: var(--borderRadius);
+    border: 1px solid var(--mainLight);
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin-inline: auto;
+    padding: 10px;
+}
+section > div h1{
+    text-align: center;
+    margin-bottom: 0;
+    color: var(--highlight);
+}
+section > div h1 + p{
+    text-align: center;
+    color: gray;
+}
+section h1 + p + p{
+    margin-top: 50px;
+    text-align: center;
+    color: white;
+}
+section > div > div{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 40px;
+}
+section > div > div > a{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+    background: var(--main);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--borderRadius);
+    transition: 300ms ease;
+    position: relative;
+    top: 0;
+    text-align: center;
+    border: 1px solid var(--mainLight);
+}
+section > div > div > a:hover{
+    top: -6px;
+    box-shadow: 0 6px 0px var(--highlight);
+}
+section .email{
+    text-align: center;
+}
+
+.health{
+    display: grid;
+    place-items: center;
+    padding: 10px;
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+}
+.health.healthy{
+    background: var(--highlightBlue);
+}
+.health.alert{
+    background: var(--highlight);
+}
+.health.danger{
+    background: rgb(253, 83, 83);
+}
+
+.marginDown{
+    margin-bottom: 50px;
+}
+.marginDown ~ span{
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 700px){
+    section > div > div{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 500px){
+    section > div > div{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -1,0 +1,338 @@
+header {
+  position: sticky;
+  left: 0;
+  top: -31px;
+  transition: 200ms ease;
+  z-index: 50;
+}
+
+header.hideBanner {
+  top: 0 !important;
+}
+
+header.noBanner {
+  top: 0 !important;
+}
+
+header .banner a {
+  background-color: var(--highlight);
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  width: 100%;
+  display: block;
+  padding: 3px 0;
+}
+
+header .content {
+  background-color: var(--nav);
+  padding-inline: 10px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: solid 1px var(--mainLighter);
+  z-index: 50;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+header .content > div {
+  width: 100%;
+  max-width: var(--contentWidth);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: auto;
+}
+
+header .content .logo,
+.sidebar .logo {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: var(--highlight);
+  font-weight: 600;
+  padding-right: 20px;
+  border-right: 1px solid var(--mainLighter);
+}
+
+header .content > div > div {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 20px;
+  color: white;
+}
+
+header .content div div div a {
+  color: #ccc;
+  text-decoration: none;
+  padding: 11px 0;
+  border-bottom: 2px solid transparent;
+  border-top: 2px solid transparent;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 10px;
+}
+
+header .dropdownWrapper {
+  display: inline-block;
+  position: relative;
+}
+
+header .dropdown {
+  left: -21px;
+  display: none;
+  position: absolute;
+  background-color: var(--nav);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  border: 1px solid var(--mainLighter);
+  border-bottom-left-radius: var(--borderRadius);
+  border-bottom-right-radius: var(--borderRadius);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+header .dropdown span {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 50px);
+  gap: 10px;
+}
+header .dropdown p {
+  border-bottom: 1px solid var(--mainLighter);
+  vertical-align: middle;
+  padding: 12px 0;
+}
+header .dropdown a {
+  margin-left: 5px;
+  color: gray;
+}
+
+header .dropdown a:hover {
+  color: var(--highlight);
+}
+
+.dropdownWrapper:hover .dropdown {
+  display: grid;
+}
+
+header .content .dropdownWrapper:hover > a {
+  border-bottom: 2px solid var(--highlight);
+  border-top: 2px solid transparent;
+}
+
+header .buttons {
+  display: flex;
+  gap: 6px;
+}
+
+p {
+  margin: 0;
+}
+.buttons button {
+  display: none;
+}
+
+.overlay{
+  z-index: 55;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.75);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility opacity 300ms ease;
+}
+.overlay.visible{
+  opacity: 1;
+  visibility: visible;
+}
+
+.sidebar {
+  position: fixed;
+  width: 280px;
+  height: calc(100vh - 10px);
+  overflow-y: auto;
+  border-top-left-radius: 20px;
+  top: 0;
+  right: -280px;
+  z-index: 60;
+  transition: right 300ms ease;
+  background: var(--main);
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+  padding-bottom: 10px;
+  transition: right 300ms ease;
+}
+
+.sidebar.open{
+  right: 0px;
+}
+
+.sidebar > span > button{
+  float: unset;
+  margin: 10px;
+  aspect-ratio: 1/1;
+  margin-left: auto;
+}
+
+.sidebar span {
+  border-bottom: 1px solid var(--mainLighter);
+  display: flex;
+  flex-flow: row nowrap;
+  margin-inline: 10px;
+  width: calc(100% - 20px);
+}
+.sidebar > div{
+  margin-inline: 10px;
+}
+
+.sidebar .button{
+  margin-top: 10px;
+}
+
+.collapsible {
+  background-color: transparent;
+  border-radius: var(--borderRadius);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1rem;
+  margin-top: 10px;
+  color: var(--highlight);
+}
+
+.collapsible.active{
+  border-radius: 0;
+  border-top-left-radius: var(--borderRadius);
+  border-top-right-radius: var(--borderRadius);
+  color: var(--highlightBlue);
+}
+
+.collapsible.active, .collapsible:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.collapsibleContent {
+  padding: 0 20px;
+  background-color: rgba(255, 255, 255, 0.02);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  border-bottom-left-radius: var(--borderRadius);
+  border-bottom-right-radius: var(--borderRadius);
+  color: white;
+}
+.collapsibleContent p{
+  margin: 10px 0;
+  color:rgb(150, 150, 150);
+}
+.collapsibleContent > div{
+  margin-bottom: 10px;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+}
+.collapsibleContent a{
+  color: #ccc;
+  text-decoration: none;
+  margin-left: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 10px;
+}
+.collapsibleContent a:hover{
+  color: var(--highlight);
+}
+
+.sidebar .logo {
+  border: 0;
+  background-color: transparent;
+}
+
+.auth{
+  width: 100%;
+  background: var(--nav);
+  border-bottom: 1px solid var(--mainLighter);
+}
+
+.auth > div{
+  width: 100%;
+  max-width: var(--contentWidth);
+  margin-inline: auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: end;
+  padding: 2px 0;
+}
+
+.auth .dropdownWrapper{
+  margin-right: 10px;
+}
+
+.auth div > button, .auth div > a{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding: 2px 5px;
+  gap: 6px;
+  color: gainsboro;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  border-radius: var(--borderRadius);
+  text-decoration: none;
+}
+
+.auth div > button:hover, .auth div > a:hover{
+  background: var(--mainLight);
+}
+
+header .dropdown2 {
+  top: 29px;
+  right: 0px;
+  display: none;
+  position: absolute;
+  background-color: var(--nav);
+  max-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  border-bottom-left-radius: var(--borderRadius);
+  border-bottom-right-radius: var(--borderRadius);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+header .dropdown2 button{
+  padding-inline: 10px;
+}
+.dropdownWrapper:hover .dropdown2 {
+  display: grid;
+}
+
+@media screen and (max-width: 600px) {
+  .buttons button {
+    display: flex !important;
+  }
+  .buttons a {
+    display: none !important;
+  }
+  .content div div .dropdownWrapper {
+    display: none !important;
+  }
+}

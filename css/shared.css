@@ -1,0 +1,160 @@
+:root{
+    --highlight: #ffa500;
+    --main: #1a202c;
+    --mainLighter: #2c313d;
+    --mainLight: #3b4150;
+    --highlightBlue: #4299e1;
+    --borderRadius: 6px;
+    --lightHighlight: #d8aa4c;
+    --nav: rgba(26, 32, 44, 0.95);
+    --contentWidth: 1280px;
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    margin: 0 !important;
+}
+
+.button{
+    display: flex;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: var(--borderRadius);
+    font-size: 1rem;
+    filter: brightness(0.9);
+    cursor: pointer;
+    border: none;
+    align-items: center;
+    gap: 6px;
+}
+.button:hover{
+    filter: brightness(1);
+    backdrop-filter: blur(3px);
+
+}
+.button.primary{
+    color: var(--main);
+    background-color: var(--lightHighlight);
+}
+.button.primaryBlue{
+    color: var(--main);
+    background-color: var(--highlightBlue);
+}
+.button.secondary{
+    color: whitesmoke;
+    background-color: var(--mainLighter);
+}
+.button.third{
+    color: whitesmoke;
+    backdrop-filter: blur(3px);
+    background-color: rgba(26,32,44,0.2);
+    border: 1px solid rgba(26,32,44,0.4);
+}
+.button.disabled{
+    filter: brightness(0.5);
+    cursor: not-allowed;
+}
+.button.danger{
+    color: red;
+    filter: brightness(1);
+    background: var(--nav);
+}
+.button.danger:hover{
+    filter: brightness(1.1);
+}
+.button.icon{
+    display: grid;
+    place-items: center;
+}
+
+.highlight{
+    color: var(--highlight) !important;
+}
+.highlightBlue{
+    color: var(--highlightBlue) !important;
+}
+
+footer {
+    background: var(--main);
+    padding: 10px 0 10px 0;
+    border-top: 1px solid var(--mainLight);
+}
+
+footer > div{
+    max-width: var(--contentWidth);
+    margin-inline: auto;
+    padding-inline: 50px;
+    width: calc(100% - 100px) !important;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+footer .logo{
+    display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: var(--highlight);
+  font-weight: 600;
+  padding-right: 20px;
+}
+footer span p{
+    margin-left: 5px;
+    color: white;
+    font-size: 0.8rem;
+}
+footer span:first-of-type{
+    display: flex;
+    flex-flow: column nowrap;
+}
+footer span:first-of-type a{
+    width: fit-content;
+}
+footer span:first-of-type a p{
+    font-size: 1.2rem;
+    color: var(--highlight);
+}
+footer span:last-of-type{
+    margin: 20px 0 20px 0;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    justify-content: right;
+}
+footer span:last-of-type a{
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--mainLighter);
+    color: var(--highlight);
+    text-decoration: none;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+footer span:last-of-type a:hover{
+    background-color: var(--mainLight);
+}
+
+@media screen and (max-width: 600px){
+    footer>div {
+        padding-inline: 0;
+        width: 100% !important;
+    }
+    footer > div{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    footer span{
+        text-align: center;
+        justify-content:center !important;
+    }
+    footer .logo{
+        margin-inline: auto;
+    }
+}

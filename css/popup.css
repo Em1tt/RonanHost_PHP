@@ -1,0 +1,89 @@
+.dialogBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+    display: grid;
+    place-items: center;
+    transition: opacity 200ms;
+}
+
+.dialog {
+    background-color: var(--main);
+    border: 1px solid var(--mainLighter);
+    border-radius: var(--borderRadius);
+    z-index: 100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: hidden;
+    transition: 200ms;
+}
+.dialog div{
+    padding: 20px;
+    height: 460px;
+    display: flex;
+    align-items: start;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center;
+}
+.dialog span{
+    background-image: url("/static/lightBlurred.webp");
+    width: 500px;
+    height: 500px;
+    background-position: 50% 25%;
+}
+
+.dialog h2,
+.dialog b {
+    color: var(--highlightBlue);
+}
+
+.dialog h2{
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+.dialog p {
+    color: white;
+    text-align: left;
+    margin-top: 0;
+}
+
+.dialog button {
+    margin-top: 20px;
+
+}
+.dialog, .dialogBackdrop{
+    visibility: hidden;
+    opacity: 0;
+}
+.dialog.show, .dialogBackdrop.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media screen and (max-width: 600px){
+    .dialog {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    .dialog span{
+        background-image: url("/static/lightBlurred.webp");
+        width: 80vw;
+        height: unset;
+        aspect-ratio: 2/1;
+        background-position: 50% 15%;
+    }
+    .dialog div{
+        height: unset;
+    }
+}
